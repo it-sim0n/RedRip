@@ -87,6 +87,6 @@ This tool is intended solely for authorized penetration testing and educational 
 
 ---
 
-##Author
+## Author
 Simon – Stay sharp. Hack the redirectors.
 
