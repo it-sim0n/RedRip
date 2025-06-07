@@ -1,3 +1,4 @@
+#CREATED BY SIMON:)
 import argparse
 import os
 import requests
@@ -120,6 +121,8 @@ def main():
     parser.add_argument("-f", "--full", action="store_true", help="Show full tested URLs")
     parser.add_argument("-d", "--domain", default="evil.com", help="Target domain for redirection (default: evil.com)")
     parser.add_argument("-t", "--threads", type=int, default=10, help="Number of concurrent threads (default: 10)")
+    parser.add_argument("-mc", "--match-code", type=int, help="Only show results with specific status code (e.g., 200)")
+    parser.add_argument("-fc", "--filter-code", type=int, nargs='+', help="Filter out responses with these status codes (e.g., 403 404)")
     args = parser.parse_args()
 
     print_banner()
@@ -137,6 +140,15 @@ def main():
         for future in as_completed(future_to_payload):
             status_msg, full_url, is_redirect = future.result()
             color = Fore.GREEN if is_redirect else Fore.RED
+
+            if args.match_code:
+                if f"[{args.match_code}]" not in status_msg:
+                    continue
+
+            if args.filter_code:
+                if any(f"[{code}]" in status_msg for code in args.filter_code):
+                    continue
+
             print(color + status_msg)
             if args.full:
                 print(Fore.CYAN + f"URL: {full_url}")
