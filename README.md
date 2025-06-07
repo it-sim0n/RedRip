@@ -103,6 +103,7 @@ pip install -r requirements.txt
 ```
 ## This will install the following dependencies:
 requests – for making HTTP requests
+
 colorama – for colored terminal output
 
 
