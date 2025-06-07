@@ -46,6 +46,10 @@ The base URL of the vulnerable redirect parameter (e.g. https://site.com/?url=)
 -s/--save : Save results to a specified file
 -f/--full : Show full URLs being tested	
 -d/--domain : Target domain to detect redirects to	(e.g. evil.com)
+-t/--threads : Number of concurrent threads (default: 10)
+-mc/--match-code : Only show results with specific status code (e.g., 200)
+-fc/--filter-code : Filter out responses with these status codes (e.g., 403 404)
+-h/--help : help:)
 
 ---
 
