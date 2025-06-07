@@ -94,3 +94,16 @@ This tool is intended solely for authorized penetration testing and educational 
 ## Author
 Simon – Stay sharp. Hack the redirectors.
 
+---
+
+# Requirements
+To run REDRIP, make sure you have the required Python packages installed. You can install them using the provided requirements.txt file:
+```bash
+pip install -r requirements.txt
+```
+## This will install the following dependencies:
+requests – for making HTTP requests
+colorama – for colored terminal output
+
+
+
